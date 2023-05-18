@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Youth-Welfare-Dashboard/static/css/main.e8233cc5.css",
+    "main.js": "/Youth-Welfare-Dashboard/static/js/main.b11279b0.js",
+    "static/media/fa-solid-900.ttf": "/Youth-Welfare-Dashboard/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
+    "static/media/fa-brands-400.ttf": "/Youth-Welfare-Dashboard/static/media/fa-brands-400.150de8eaa454d669c405.ttf",
+    "static/media/fa-solid-900.woff2": "/Youth-Welfare-Dashboard/static/media/fa-solid-900.bb975c966c37455a1bc3.woff2",
+    "static/media/ssssss.png": "/Youth-Welfare-Dashboard/static/media/ssssss.7523a65dd9f71c31751b.png",
+    "static/media/error.svg": "/Youth-Welfare-Dashboard/static/media/error.084f5f5b0eb10d3216cb7c939108e1f6.svg",
+    "static/media/fa-brands-400.woff2": "/Youth-Welfare-Dashboard/static/media/fa-brands-400.e033a13ee751afc1860c.woff2",
+    "static/media/fa-regular-400.ttf": "/Youth-Welfare-Dashboard/static/media/fa-regular-400.d87474231f4192884802.ttf",
+    "static/media/fa-regular-400.woff2": "/Youth-Welfare-Dashboard/static/media/fa-regular-400.3223dc79c1adee56370b.woff2",
+    "static/media/fa-v4compatibility.ttf": "/Youth-Welfare-Dashboard/static/media/fa-v4compatibility.0e3a648be390bd8cb094.ttf",
+    "static/media/fa-v4compatibility.woff2": "/Youth-Welfare-Dashboard/static/media/fa-v4compatibility.68577e40f3e70067b5da.woff2",
+    "index.html": "/Youth-Welfare-Dashboard/index.html",
+    "main.e8233cc5.css.map": "/Youth-Welfare-Dashboard/static/css/main.e8233cc5.css.map",
+    "main.b11279b0.js.map": "/Youth-Welfare-Dashboard/static/js/main.b11279b0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e8233cc5.css",
+    "static/js/main.b11279b0.js"
+  ]
+}

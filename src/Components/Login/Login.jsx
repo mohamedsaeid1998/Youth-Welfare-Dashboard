@@ -34,7 +34,7 @@ export default function Login({saveUserData}) {
     saveUserData()
 
     toast.success(`successfully Login Welcome Back `,{ duration: 3000, position: 'top-center',className: 'bg-success text-white'})
-    navigate("/")
+    navigate("/homePage")
   }
   }
   

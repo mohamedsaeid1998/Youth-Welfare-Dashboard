@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { RouterProvider,  createBrowserRouter } from 'react-router-dom';
-// import DashBoard from './Components/DashBoard/DashBoard';
+import { RouterProvider,  createBrowserRouter, createHashRouter } from 'react-router-dom';
 import Layout from './Components/Layout/Layout';
 import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
@@ -51,12 +50,10 @@ export default function App() {
     setSetUserData(decodedToken)
   }
 
-let router = createBrowserRouter([{
+let router = createHashRouter([{
   path:"" , element:<Layout SetUserData={SetUserData} setSetUserData={setSetUserData}/>, children:[
-    {path:"login" , element:<Login saveUserData={saveUserData}/>},
-    // {path:"dashBoard" , element: <ProtectedRoute><DashBoard/></ProtectedRoute>},
-
-    {index:true , element:<ProtectedRoute><HomePage/></ProtectedRoute>},
+    {index:true , element:<Login saveUserData={saveUserData}/>},
+    {path:"homePage" , element:<ProtectedRoute><HomePage/></ProtectedRoute>},
     {path:"UpdateDescription/:id" , element:<ProtectedRoute><UpdateDescription/></ProtectedRoute>},
     {path:"categories" , element:<ProtectedRoute><Categories/></ProtectedRoute>},
     {path:"addCategory" , element:<ProtectedRoute><AddCategory/></ProtectedRoute>},

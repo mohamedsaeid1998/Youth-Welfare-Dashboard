@@ -17,7 +17,7 @@ return <>
                 </li>
 
                 <li>
-                    <Link className='d-flex align-items-center mx-2' to={"/"}>
+                    <Link className='d-flex align-items-center mx-2' to={"/homePage"}>
                         <i className="fa-solid fa-house  fs-4"></i>
                         <span className="title ">Home</span>
                     </Link>

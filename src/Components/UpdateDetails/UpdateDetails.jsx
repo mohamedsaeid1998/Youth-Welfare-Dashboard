@@ -142,7 +142,7 @@ async function deleteImage(cloud){
 
 
 
-        <h2 className="content-title text-center ">Update CategoryDescription</h2>
+        <h2 className="content-title text-center ">Update Category Description</h2>
 
 
       {load?<div className='text-center'><i className='fas fa-spinner fa-spin fa-4x text-black-50' ></i></div>:<div className='d-flex justify-content-center align-content-center'>

@@ -12,8 +12,8 @@ export default function HomePage() {
     const [para, setPara] = useState(null)
 
   useEffect(()=>{
-    displayDescription("ar")
     changing()
+    displayDescription("ar")
   },[])
 
 async function displayDescription(lang){

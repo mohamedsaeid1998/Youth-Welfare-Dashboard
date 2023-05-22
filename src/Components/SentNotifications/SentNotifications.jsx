@@ -63,16 +63,18 @@ let response = await axios.post(`${baseUrl}/send-email`,
   headers:headers
 }).then((response)=>response)
 .catch((error)=>error)
-
-if(response.data.message==="send notification success"){
+console.log(response);
+if(response?.data?.message==="send notification success"){
   toast.success(`send notification success`,{ duration: 3000, position: 'top-center',className: 'bg-success text-white'})
   setLoading(false)
   displayCategoryEn("ar")
   categoryKind("64078f7b04c364c71a432601")
 }else{
+  console.log(response);
   toast.error(`${response?.response?.data?.message}`,{ duration: 2000, position: 'bottom-center',className: 'bg-danger text-white'})
   setLoading(false)
 }
+
 }
 
 
@@ -97,9 +99,9 @@ if(response.data.message==="send notification success"){
           <div className="card mb-4 shadow-sm">
             <div className="card-body">
 
-            <div className='d-flex justify-content-between align-items-center'>
+            <div className='d-flex justify-content-between align-items-center gap-2'>
 
-            <form  className='category w-25 mns'>
+            <form  className='category mns'>
                 <label htmlFor="category">الانشطة</label>
             <select id="category" name='category' onChange={categoryKindValue} className="form-select  ">
             {english?.result?.map((eng,index)=><option key={index} value={eng._id}>{eng.title_ar}</option>
@@ -107,14 +109,13 @@ if(response.data.message==="send notification success"){
             </select>
                 </form>
 
-            <form  className='category w-25 mns' >
+            <form  className='category mns' >
                 <label htmlFor="activity">نوع النشاط</label>
             <select id="activity" name='activity' className="form-select  ">
             {category?.result?.map((eng,index)=><option key={index} value={eng._id} name="activity">{eng.title_ar}</option>
             )}
             </select>
                 </form>
-
             </div>
 
               <form className="my-2 mns" onSubmit={submit}>
@@ -122,9 +123,6 @@ if(response.data.message==="send notification success"){
                   <label className="form-label text-primary">الرسالة :-</label>
                 <textarea name='message' placeholder="اكتب رسالتك"className="form-control" rows="7" id="message" required="">
                   </textarea>
-
-                  
-                            
 
                 <div className='d-flex justify-content-center align-items-center mt-3'>
                 {Loading?<button type="button" className="btn btn-primary"><i className='fas fa-spinner fa-spin'></i></button>:
@@ -141,56 +139,3 @@ if(response.data.message==="send notification success"){
   </div>
   </>
 }
-
-
-
-
-
-const YourComponent = () => {
-  const [activityName, setActivityName] = useState('');
-  const [message, setMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleSendNotification = async () => {
-    try {
-      const response = await axios.post('/your-api-endpoint', {
-        activity: activityName,
-        message: message
-      });
-
-      if (response.status === 200) {
-        setSuccessMessage('Notification sent successfully');
-        setErrorMessage('');
-      }
-    } catch (error) {
-      if (error.response && error.response.status === 400) {
-        setErrorMessage('There are no students registered for this activity');
-      } else {
-        setErrorMessage('An error occurred. Please try again later.');
-      }
-      setSuccessMessage('');
-    }
-  };
-
-  return (
-    <div>
-      <input
-        type="text"
-        placeholder="Activity Name"
-        value={activityName}
-        onChange={(e) => setActivityName(e.target.value)}
-      />
-      <textarea
-        placeholder="Notification Message"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <button onClick={handleSendNotification}>Send Notification</button>
-      {successMessage && <p>{successMessage}</p>}
-      {errorMessage && <p>{errorMessage}</p>}
-    </div>
-  );
-};
-
-

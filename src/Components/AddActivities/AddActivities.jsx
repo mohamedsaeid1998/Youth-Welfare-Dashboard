@@ -113,7 +113,7 @@ let formik =useFormik({
         <div className="main" >
 
 
-<Link to={"/categories"} >
+<Link to={"/activities"} >
 <button className="btn btn-primary mx-4 mt-3">Go to Activities</button>
 </Link>
 
@@ -160,7 +160,7 @@ let formik =useFormik({
 
                     </div>
 
-                    <div className='d-flex justify-content-between align-items-center mb-4'>
+                    <div className='d-flex justify-content-between align-items-center mb-4 gap-2' >
                       <div>
                       <label className="form-label">Images</label>
                       <input className="form-control mt-1 w-100 text-center" type="file" id="image-upload" accept="image/*" multiple onChange={handleImageChange}  name='image' placeholder='image must be less than 3 MB' required/>

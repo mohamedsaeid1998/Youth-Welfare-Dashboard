@@ -194,8 +194,8 @@ async function deleteImage(cloud){
             <div className='position-relative img overflow-hidden'>
 
               <img src={image.url} className='w-100' alt="" />
-                    <div onClick={()=>deleteImage(image.cloudinary_id)} className=" word p-3 position-absolute top-0 bottom-0 start-0 end-0 d-flex align-items-center cursor-pointer w-100 ">
-                    </div>
+              <div  className=" word p-3 position-absolute top-0 bottom-0 start-0 end-0 d-flex align-items-center cursor-pointer w-100 ">
+                    <i onClick={()=>deleteImage(image.cloudinary_id)} className="fa-solid fa-xmark fs-2 position-absolute top-0 end-0 text-danger p-3 pointer"></i>                    </div>
 
               </div>
             </div>)}

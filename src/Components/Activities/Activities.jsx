@@ -121,6 +121,7 @@ async function categoryKind(categoryId){
 
                         {category?.result?.map((eng,index)=><tbody key={index}>
                             <tr>
+                              
                                 <td>{eng.title_en}</td>
                                 <td>{eng.numRecorded}</td>
                                 <td>{eng.averageRating?eng.averageRating:0}</td>

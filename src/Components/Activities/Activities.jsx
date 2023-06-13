@@ -5,9 +5,13 @@ import swal from 'sweetalert';
 import { Helmet } from 'react-helmet';
 import { categoryContext } from './../../Context/CategoryContext';
 import axios from 'axios';
+import { activitiesContext } from '../../Context/activitiesContext';
+import { toast } from 'react-hot-toast';
+
 export default function Activities() {
 
   let {getCategory,baseUrl,headers}= useContext(categoryContext)
+  let {getPdf}= useContext(activitiesContext)
 
 
   const [english, setEnglish] = useState(null)
@@ -20,6 +24,18 @@ useEffect(()=>{
   categoryKind("6407a75204c364c71a432612")
 },[])
 
+
+async function showPdf(id){
+  console.log(id);
+let response = await getPdf(id)
+console.log(response);
+if (response.status===200){
+  window.location.href=response.data
+}else{
+  console.log(response);
+  toast.error(`${response?.response?.data?.message}`,{ duration: 2000, position: 'top-center',className: 'border border-danger border-3 text-danger'})
+}
+}
 
 
 async function displayCategoryEn(lang){
@@ -97,7 +113,8 @@ async function categoryKind(categoryId){
                                 <td>Title</td>
                                 <td>NumberRecorded</td>
                                 <td>AverageRating</td>
-                                <td> Update</td>
+                                <td>Report</td>
+                                <td>Update</td>
                                 <td>Delete</td>
                             </tr>
                         </thead>
@@ -107,7 +124,7 @@ async function categoryKind(categoryId){
                                 <td>{eng.title_en}</td>
                                 <td>{eng.numRecorded}</td>
                                 <td>{eng.averageRating?eng.averageRating:0}</td>
-
+                                <td><button className="btn btn-info ms-3" onClick={()=>showPdf(eng._id)}><i className ="fa-solid fa-file-pdf"></i></button></td>
                                 <td>
                                 <Link to={`/activityDetails/${eng._id}`}>
                                 <span className="btn btn-warning btn-sm ">Update</span>

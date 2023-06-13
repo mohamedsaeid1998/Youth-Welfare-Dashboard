@@ -11,17 +11,28 @@ export default function Trips() {
 
 
   let {getTrips,baseUrl,headers}= useContext(tripsContext)
+  let {getPdf}= useContext(tripsContext)
 
-  const [arabic, setArabic] = useState(null)
-  const [english, setEnglish] = useState(null)
+
   const [load, setLoad] = useState(false)
-  const [Loading, setLoading] = useState(false)
+
 useEffect(()=>{
   // displayTrips("ar")
   displayTripsEn("en")
 
 },[])
 
+async function showPdf(id){
+  console.log(id);
+let response = await getPdf(id)
+console.log(response);
+if (response.status===200){
+  window.location.href=response.data
+}else{
+  console.log(response);
+  toast.error(`${response?.response?.data?.message}`,{ duration: 2000, position: 'top-center',className: 'border border-danger border-3 text-danger'})
+}
+}
 
 
 async function displayTripsEn(lang){
@@ -76,6 +87,7 @@ const [trip, setTrip] = useState(null)
                                 <td>Place</td>
                                 <td>NumberRecorded</td>
                                 <td>price</td>
+                                <td>Report</td>
                                 <td>Update</td>
                                 <td>Delete</td>
                             </tr>
@@ -87,7 +99,7 @@ const [trip, setTrip] = useState(null)
                                 <td>{eng.place_en}</td>
                                 <td>{eng.numRecorded}</td>
                                 <td>{eng.price}</td>
-
+                                <td><button className="btn btn-info ms-3" onClick={()=>showPdf(eng._id)}><i className ="fa-solid fa-file-pdf"></i></button></td>
                                 <td>
                                 <Link to={`/updateTrips/${eng._id}`}>
                                 <span className="btn btn-warning btn-sm ">Update</span>

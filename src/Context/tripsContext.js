@@ -22,7 +22,18 @@ export default function TripsContextProvider(props) {
     .catch((error)=>error)
       }
 
-return <tripsContext.Provider value={{baseUrl,headers,getTrips}}>
+      
+      async function getPdf(id){
+        return axios.get(`${baseUrl}/trips/report/${id}`,
+        {
+          headers:headers
+        }
+        )
+        .then((response)=>response)
+        .catch((error)=>error)
+          }
+
+return <tripsContext.Provider value={{baseUrl,headers,getTrips,getPdf}}>
   {props.children}
 </tripsContext.Provider>
 }

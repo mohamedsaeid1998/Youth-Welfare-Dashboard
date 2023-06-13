@@ -22,7 +22,19 @@ export default function ActivitiesContextProvider(props) {
     .catch((error)=>error)
       }
 
-return <activitiesContext.Provider value={{baseUrl,headers,getActivities}}>
+      async function getPdf(id){
+        return axios.get(`${baseUrl}/activities/report/${id}`,
+        {
+          headers:headers
+        }
+        )
+        .then((response)=>response)
+        .catch((error)=>error)
+          }
+    
+
+
+return <activitiesContext.Provider value={{baseUrl,headers,getActivities,getPdf}}>
   {props.children}
 </activitiesContext.Provider>
 }

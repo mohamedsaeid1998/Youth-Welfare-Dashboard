@@ -127,7 +127,7 @@ async function deleteImage(cloud){
 <div className="main" >
 
 
-        <Link to={"/"} >
+        <Link to={"/homePage"} >
         <button className="btn btn-primary mx-4 mt-3">Go to HomePage</button>
         </Link>
 
@@ -185,18 +185,15 @@ async function deleteImage(cloud){
     </div>
     </div>
 
-
     <div className="row">
 
-
- {arabic?.images?.map((image,index)=><div key={index} className="col-md-3">
+{arabic?.images?.map((image,index)=><div key={index} className="col-md-3">
             <label className="form-label">Images {index+1}</label>
             <div className='position-relative img overflow-hidden'>
 
               <img src={image.url} className='w-100' alt="" />
               <div  className=" word p-3 position-absolute top-0 bottom-0 start-0 end-0 d-flex align-items-center cursor-pointer w-100 ">
                     <i onClick={()=>deleteImage(image.cloudinary_id)} className="fa-solid fa-xmark fs-2 position-absolute top-0 end-0 text-danger p-3 pointer"></i>                    </div>
-
               </div>
             </div>)}
 

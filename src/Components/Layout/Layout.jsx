@@ -6,6 +6,7 @@ import Navigation from './../Navigation/Navigation';
 import { useNavigate } from 'react-router-dom'
 import { Offline } from "react-detect-offline";
 import { useEffect } from 'react';
+import $ from "jquery"
 export default function Layout({setSetUserData}) {
 
   let navigate =useNavigate()
@@ -23,21 +24,14 @@ export default function Layout({setSetUserData}) {
   },)
   
   function active(){
-    let list = document.querySelectorAll(".navigation li");
-    
-    function activeLink() {
-        list.forEach((item) => {
-            item.classList.remove("hovered");
-            
-        });
-        this.classList.add("hovered");
-    }
+    $(".navigation li").click(function(){
+      $(this).addClass("hovered")
+      $(this).siblings().removeClass("hovered")
+    })
 
-    
-    list.forEach((item) => item.addEventListener("mouseover", activeLink));
-    let toggle = document.querySelector(".toggle");
-  let navigation = document.querySelector(".navigation");
-  let main = document.querySelectorAll(".main");
+  const toggle = document.querySelector(".toggle"),
+  navigation = document.querySelector(".navigation"),
+  main = document.querySelectorAll(".main");
   
 if (main[0].classList.contains("active")){
   main[1].classList.add("active")

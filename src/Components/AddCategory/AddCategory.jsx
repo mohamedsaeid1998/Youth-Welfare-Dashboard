@@ -22,10 +22,7 @@ let navigate = useNavigate()
     const handleImageChange = (e) => {
       const files = Array.from(e.target.files)
       setImageFile(files);
-
     }
-
-
 
     const handleImageChangeCover = (event) => {
       const file = event.target.files[0];
@@ -46,7 +43,6 @@ function submit(values){
   formData.append('description_ar', values.description_ar);
   formData.append('goles_ar', values.goles_ar);
   formData.append('coverImage', imageFileCover);
-
 
 addCategoryDetails(formData)
 }

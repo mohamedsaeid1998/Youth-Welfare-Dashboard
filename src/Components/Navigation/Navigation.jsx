@@ -16,7 +16,7 @@ return <>
                         <span className="title text-white mx-2  mt-3 ">Youth Welfare</span>
                 </li>
 
-                <li>
+                <li className='hovered'>
                     <Link className='d-flex align-items-center mx-2' to={"/homePage"}>
                         <i className="fa-solid fa-house  fs-4"></i>
                         <span className="title ">Home</span>
